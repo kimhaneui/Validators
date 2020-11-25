@@ -1,0 +1,22 @@
+<!-- 모달 -->
+<div class="modal type1">
+  <div class="modal-contents">
+    <div class="modal-header">
+      <h1 class="modal-title">고객문의 작성</h1>
+      <a class="btn-common-modal-close">닫기</a>
+    </div>
+    <div class="modal-body pd-all">
+      <form [formGroup]="mainForm" novalidate #f="ngForm">
+        <div class="row-list">
+          <div class="row-item column">
+            <h2 class="row-item-title">상담 내용</h2>
+            <div class="textarea lg line">
+              <textarea formControlName="questionDetail" [class.valid-error]="isValidError(mainForm.controls.questionDetail, f.submitted)" cols="30" rows="10" placeholder="문의 하시는 내용을 입력해주세요."></textarea>
+              <span *ngIf="mainForm.controls.questionDetail.hasError('maxlength')" class="valid-msg">요청사항의 글자수는 100자 까지 입력 가능합니다.</span>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
